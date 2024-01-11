@@ -34,6 +34,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1.0'
   # Factory pattern for Rails applications
   gem "factory_bot_rails", "~> 6.4"
+  # Easily generate fake data
+  gem "ffaker", "~> 2.23"
 end
 
 group :development do
@@ -71,3 +73,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# Searching to your Rails application, without any additional dependencies
+gem "ransack", "~> 4.1"
