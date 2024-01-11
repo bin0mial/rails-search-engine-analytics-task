@@ -22,7 +22,7 @@ PreCommit:
   RuboCop:
     enabled: true
     description: 'Analyze with RuboCop'
-    command: ["sh", "-c", "git diff --name-only --cached | xargs bundle exec rubocop --force-excl"]
+    command: ["sh", "-c", "git diff --name-only | xargs bundle exec rubocop --force-excl"]
   AuthorEmail:
     enabled: true
     description: 'Check author email'
