@@ -1,0 +1,14 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.1.1
+  Exclude:
+    - 'lib/tasks/auto_annotate_models.rake'
+    - 'Gemfile'
+
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

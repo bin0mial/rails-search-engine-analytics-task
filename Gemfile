@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 6.1.0'
 end
 
 group :development do
@@ -41,7 +42,19 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 4.1'
+  # Adds annotations to Rails models
+  gem 'annotate', '~> 3.2'
+  # Checks Rails code for potential code smells
+  gem 'flay', '~> 2.13'
+  # Checks Rails code for best practices violations
+  gem 'rails_best_practices', '~> 1.23'
+  # Static code analyzer for Ruby
+  gem 'rubocop', '~> 1.43'
+  gem 'rubocop-rails', '~> 2.17'
+  gem 'rubocop-rspec', '~> 2.26'
+  # Additional performance checks for RuboCop
+  gem 'rubocop-performance', '~> 1.15'
 end
 
 group :test do
@@ -50,10 +63,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-end
-
-group :development, :test do
-  gem 'rspec-rails', '~> 6.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
