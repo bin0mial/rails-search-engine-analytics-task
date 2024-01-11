@@ -12,17 +12,17 @@
   <% end %>
 
 
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %><br>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
+  <div class="mb-3">
+    <%= form.label :body, class: 'form-label'  %><br>
+    <%= form.text_area :body, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mb-3">
+    <%= form.submit 'Save', class: 'btn btn-primary' %>
   </div>
 <% end %>
