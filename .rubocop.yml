@@ -8,7 +8,17 @@ AllCops:
   Exclude:
     - 'lib/tasks/auto_annotate_models.rake'
     - 'Gemfile'
-
+    - 'db/schema.rb'
+    - 'db/migrate/*'
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+RSpec/Rails/InferredSpecType:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
   Enabled: false
