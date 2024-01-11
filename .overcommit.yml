@@ -1,0 +1,85 @@
+# Use this file to configure the Overcommit hooks you wish to use. This will
+# extend the default configuration defined in:
+# https://github.com/sds/overcommit/blob/master/config/default.yml
+#
+# At the topmost level of this YAML file is a key representing type of hook
+# being run (e.g. pre-commit, commit-msg, etc.). Within each type you can
+# customize each hook, such as whether to only run it on certain files (via
+# `include`), whether to only display output if it fails (via `quiet`), etc.
+#
+# For a complete list of hooks, see:
+# https://github.com/sds/overcommit/tree/master/lib/overcommit/hook
+#
+# For a complete list of options that you can use to customize hooks, see:
+# https://github.com/sds/overcommit#configuration
+#
+
+PreCommit:
+  ALL:
+    problem_on_unmodified_line: ignore
+    on_warn: fail
+    quiet: true
+  RuboCop:
+    enabled: true
+    description: 'Analyze with RuboCop'
+    command: ["sh", "-c", "git diff --name-only --staged | xargs bundle exec rubocop --force-excl"]
+  AuthorEmail:
+    enabled: true
+    description: 'Check author email'
+  AuthorName:
+    enabled: false
+    description: 'Check for author name'
+  RailsBestPractices:
+    enabled: true
+    description: 'Analyze with RailsBestPractices'
+    RemoveUnusedMethodsInControllersCheck: false
+    RemoveUnusedMethodsInModelsCheck: false
+  Brakeman:
+    enabled: true
+    description: 'Analyze with Brakeman'
+  Reek:
+    enabled: false
+    description: 'Analyze with Reek'
+  Flay:
+    enabled: true
+    description: 'Analyze ruby code for structural similarities with Flay'
+    include: '**/*.rb'
+    exclude: 'spec/**/*.rb'
+    mass_threshold: 100
+  RailsSchemaUpToDate:
+    enabled: true
+    description: 'Check if database schema is up to date'
+    include:
+      - 'db/migrate/*.rb'
+      - 'db/schema.rb'
+      - 'db/structure.sql'
+  ForbiddenBranches:
+    enabled: true
+    description: 'Prevent merging to staging, main and production branches locally'
+    branch_patterns: [ 'main' ]
+  FixMe:
+    enabled: true
+    keywords: [ "FIXME" ]
+    exclude:
+      - .overcommit.yml
+  BundleCheck:
+    enabled: true
+CommitMsg:
+  ALL:
+    quiet: true
+    on_warn: fail
+  MessageFormat:
+    enabled: false
+  CapitalizedSubject:
+    enabled: false
+  TextWidth:
+    enabled: true
+    description: 'Check text width'
+    max_subject_width: 100
+    min_subject_width: 0
+    max_body_width: 72
+PrePush:
+  RSpec:
+    enabled: true
+    command: [ 'rspec' ]
+    on_warn: fail
