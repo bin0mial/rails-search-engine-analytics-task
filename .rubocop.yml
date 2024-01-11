@@ -10,6 +10,7 @@ AllCops:
     - 'Gemfile'
     - 'db/schema.rb'
     - 'db/migrate/*'
+    - 'config/environments/*'
 
 Style/FrozenStringLiteralComment:
   Enabled: false

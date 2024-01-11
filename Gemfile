@@ -73,3 +73,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# Searching to your Rails application, without any additional dependencies
+gem "ransack", "~> 4.1"

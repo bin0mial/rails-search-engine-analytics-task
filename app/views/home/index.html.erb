@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center">
+  <div>
+    <div class="mb-3">
+      <%= form_with url: articles_url(format: :json), method: :get, id: 'searchArticlesForm' do |form| %>
+        <%= csrf_meta_tag %>
+        <%= form.label :query, "Search for:", class: 'form-label' %>
+        <%= form.search_field :query, class: 'form-control', placeholder: 'Search for article...' %>
+      <% end %>
+    </div>
+    <div class="d-none justify-content-center" id="homeSearchLoader">
+      <div class="spinner-border" role="status"></div>
+    </div>
+    <div id="results">
+      <h3 class="result-title">Results:</h3>
+      <div id="resultSet"></div>
+    </div>
+  </div>
+</div>
+
+<% content_for :scripts do %>
+  <%= javascript_pack_tag 'homepage_search' %>
+<% end %>
