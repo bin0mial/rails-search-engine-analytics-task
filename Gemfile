@@ -34,6 +34,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1.0'
   # Factory pattern for Rails applications
   gem "factory_bot_rails", "~> 6.4"
+  # Easily generate fake data
+  gem "ffaker", "~> 2.23"
 end
 
 group :development do
