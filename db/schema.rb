@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_11_164319) do
+ActiveRecord::Schema.define(version: 2024_01_12_191726) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "search_histories", force: :cascade do |t|
+    t.string "ip", null: false
+    t.string "term", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "result_count", default: 0, null: false
   end
 
 end
