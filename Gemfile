@@ -75,3 +75,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Searching to your Rails application, without any additional dependencies
 gem "ransack", "~> 4.1"
+# Create beautiful JavaScript charts with one line of Ruby
+gem "chartkick", "~> 5.0"
+
+gem "groupdate", "~> 6.4"
