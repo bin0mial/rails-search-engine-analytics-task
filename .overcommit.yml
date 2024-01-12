@@ -34,6 +34,7 @@ PreCommit:
     description: 'Analyze with RailsBestPractices'
     RemoveUnusedMethodsInControllersCheck: false
     RemoveUnusedMethodsInModelsCheck: false
+    command: ['bundle', 'exec', 'rails_best_practices', '-c', 'rails_best_practices.yml']
   Brakeman:
     enabled: true
     description: 'Analyze with Brakeman'
