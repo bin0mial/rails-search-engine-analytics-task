@@ -4,6 +4,7 @@ class AnalyticsController < ApplicationController
     trends
     ips
     top_searches
+    top_search_results_within_week
     search_timeline
   end
 
@@ -28,6 +29,11 @@ class AnalyticsController < ApplicationController
   def top_searches
     @top_searches ||= SearchHistory.where(updated_at: top_search_time_range)
                                    .group(:term).order('count_all desc').limit(20).count
+  end
+
+  def top_search_results_within_week
+    @top_search_results_within_week ||= SearchHistory.group(:term).order('maximum_result_count desc')
+                                                     .limit(10).maximum(:result_count)
   end
 
   def search_timeline

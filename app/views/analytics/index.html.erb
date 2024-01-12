@@ -18,6 +18,10 @@
     <h2>Top 20 searches for 1 week:</h2>
     <%= column_chart @top_searches,  xtitle: "Search Terms", ytitle: "Search Times" %>
   </section>
+  <section class="col-lg-6 col-sm-12">
+    <h2>Top 20 searches results for 1 week:</h2>
+    <%= column_chart @top_search_results_within_week,  xtitle: "Search Terms", ytitle: "Number of Results" %>
+  </section>
   <section class="col-lg-12 col-sm-12">
     <h2>Searches timeline</h2>
     <%= area_chart @search_timeline, xtitle: "Timeline", ytitle: "Search times" %>

@@ -1,9 +1,10 @@
 module SearchHistories
   # Responsible for adding completed term to history
   class AddCompleteTerm < ApplicationService
-    def initialize(ip, term)
+    def initialize(ip, term, result_count = 0)
       self.ip = ip.strip
       self.term = term.strip
+      self.result_count = result_count
     end
 
     def call
@@ -12,7 +13,7 @@ module SearchHistories
 
     private
 
-    attr_accessor :ip, :term
+    attr_accessor :ip, :term, :result_count
 
     ##
     # Gets the recent term has been searched for the same ip in less than 1 minute
@@ -26,6 +27,7 @@ module SearchHistories
 
     def record_term!
       recent_term_or_init.term = term
+      recent_term_or_init.result_count = result_count
       recent_term_or_init.save
     end
   end
