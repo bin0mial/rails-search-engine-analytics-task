@@ -5,6 +5,8 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
+    term = searcheable_params.fetch(:title_cont, nil)
+    SearchHistories::AddCompleteTerm.call(request.remote_ip, term) if term.present?
     @articles = Article.ransack(searcheable_params).result(distinct: true)
   end
 
@@ -70,6 +72,6 @@ class ArticlesController < ApplicationController
   end
 
   def searcheable_params
-    params.fetch(:q, {}).permit(:m, :title_cont, :body_cont)
+    @searcheable_params ||= params.fetch(:q, {}).permit(:m, :title_cont, :body_cont)
   end
 end
