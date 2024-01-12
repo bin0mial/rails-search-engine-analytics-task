@@ -2,7 +2,7 @@
 #
 # Table name: search_histories
 #
-#  id           :integer          not null, primary key
+#  id           :bigint           not null, primary key
 #  ip           :string           not null
 #  result_count :bigint           default(0), not null
 #  term         :string           not null

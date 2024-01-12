@@ -42,3 +42,5 @@ yarn-debug.log*
 ## IDEs and Editors
 /.idea
 /.vscode
+
+/config/credentials/*.key
