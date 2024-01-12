@@ -32,8 +32,11 @@ class HomepageSearch {
         if (this.#shouldFire()) {
             const result = await this.#fireSearchQuery();
             this.#handleSearchResult(result);
+            this.#unsetLoading();
+        } else {
+            this.#unsetLoading();
+            this.#hideResultSet()
         }
-        this.#unsetLoading();
     }
 
 

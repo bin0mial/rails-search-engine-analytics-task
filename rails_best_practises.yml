@@ -1,1 +1,2 @@
 RemoveUnusedMethodsInControllersCheck: { except_methods: ['AnalyticsController#index'] }
+RemoveUnusedMethodsInHelpersCheck: { except_methods: ['ApplicationHelper#active_class'] }
