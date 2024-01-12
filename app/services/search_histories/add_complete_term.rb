@@ -20,7 +20,7 @@ module SearchHistories
     # This is for if someone writes slow search term would be updated
     # Also to prevent 2 users in same network to modify each other queries (1 minute just for safety)
     def recent_term_or_init
-      @recent_term_or_init ||= SearchHistory.where('? LIKE CONCAT("%", term, "%")', term)
+      @recent_term_or_init ||= SearchHistory.where("? ILIKE CONCAT('%', term, '%')", term)
                                             .where('updated_at > ?', 1.minute.ago)
                                             .find_or_initialize_by(ip: '201.201.177.220')
     end
