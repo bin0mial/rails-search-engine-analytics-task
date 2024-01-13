@@ -3,7 +3,7 @@ module SearchHistories
   class AddCompleteTerm < ApplicationService
     def initialize(ip, term, result_count = 0)
       self.ip = ip.strip
-      self.term = term.strip
+      self.term = term.strip.downcase
       self.result_count = result_count
     end
 
