@@ -22,7 +22,7 @@ module SearchHistories
     def recent_term_or_init
       @recent_term_or_init ||= SearchHistory.where("? ILIKE CONCAT('%', term, '%')", term)
                                             .where('updated_at > ?', 1.minute.ago)
-                                            .find_or_initialize_by(ip: '201.201.177.220')
+                                            .find_or_initialize_by(ip:)
     end
 
     def record_term!
