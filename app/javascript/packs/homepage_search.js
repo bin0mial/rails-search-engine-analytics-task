@@ -147,7 +147,8 @@ class HomepageSearch {
 
 const initHomepage = () => {
     const element = document.getElementById('query');
+    element.removeEventListener('input', HomepageSearch.searchQueryHandler);
     element.addEventListener('input', HomepageSearch.searchQueryHandler);
 }
 
-document.addEventListener("DOMContentLoaded", initHomepage);
+initHomepage();
